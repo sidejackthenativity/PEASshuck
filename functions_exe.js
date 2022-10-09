@@ -48,53 +48,16 @@ function create_list_buttons()
 	for (let i of topics_1) {
 		count = 0;
 
-		let listnew = document.createElement('li');
-		listnew.setAttribute("class","mb-1");
-	
-		listnew.setAttribute('id',"u"+c.toString()+z.toString());
-		let buttonnew = document.createElement('button');
-		buttonnew.setAttribute("class","btn btn-toggle align-items-center rounded collapsed");
-		buttonnew.setAttribute('data-bs-toggle','collapse');
-		buttonnew.setAttribute('data-bs-target','#m'+c.toString()+z.toString()+'-collapse');
-		buttonnew.setAttribute('aria-expanded','false');
-
-		buttonnew.textContent = i[0];
+		let listnew = document.createElement('a');
+		listnew.setAttribute("class","list-group-item list-group-item-action");	
+		listnew.setAttribute('id',c.toString()+z.toString());
+		
+		let newContent = document.createTextNode(i[0]);
+		listnew.appendChild(newContent);
 		document.getElementById("winpeasCategories").appendChild(listnew);
-		document.getElementById(("u"+c.toString())+z.toString()).appendChild(buttonnew);
-
-		let divnew = document.createElement('div');
-		divnew.className='collapse';
-		divnew.setAttribute('id','m'+c.toString()+z.toString()+'-collapse');
 		
-		let ulnew = document.createElement('ul');
-		ulnew.setAttribute('id',c.toString()+z.toString()+'sub-1');
-		ulnew.className = 'btn-toggle-nav list-unstyled fw-normal pb-1 small';
-
-		document.getElementById("winpeasCategories").appendChild(divnew);
-		document.getElementById('m'+c.toString()+z.toString()+"-collapse").appendChild(ulnew);
-		
-
-		
-		for (let j of i) {
-			if (count <= (i.length)-1)
-			{
-				count = count + 1;
-
-				let buttonnew1 = document.createElement('button');
-				buttonnew1.className = 'link-dark rounded';
-				buttonnew1.setAttribute('id',c.toString()+(count-1).toString());
-				buttonnew1.textContent = j;
-				document.getElementById(c.toString()+z.toString()+'sub-1').appendChild(buttonnew1);
-
-				
-			}
-			
-		}
 		c = c + 1;
 	}
-
-	
-	
 
 }
 		
